@@ -23,7 +23,8 @@ int main()
 
 	auto end = chrono::high_resolution_clock::now();
 
-	cout << result;
+	cout << "Result: " << result << endl;
+	cout << "Work time: " << chrono::duration_cast<chrono::milliseconds>(end - begin).count() << endl;
 	system("pause");
 	return 0;
 }
@@ -40,6 +41,7 @@ double Integration(double from, double to, int splitCount, double (*calcFunc)(do
 		auto x1 = from + i * step;
 		auto x2 = from + (i + 1) * step;
 		sum += calcFunc((x1 + x2) / 2.0) * (x2 - x1);
+		//cout <<' '<< i;
 	}
 
 	return sum;
